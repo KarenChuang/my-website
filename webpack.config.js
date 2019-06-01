@@ -1,15 +1,16 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/index.jsx'
+    app: './src/index.tsx',
   },
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
       '@': './src/'
     }
@@ -20,17 +21,25 @@ module.exports = {
     port: 8088
   },
   module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
+    rules: [{
+        test: /\.(js|tsx|ts)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [{
+            loader: "css-loader"
+          }
+        ]
       }
-    ]
-  }
+    ],
+  },
+  plugins: [
+    new webpack.WatchIgnorePlugin([
+      /css\.d\.ts$/
+    ]),
+  ]
 };
