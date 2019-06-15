@@ -28,9 +28,11 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
     "css-loader": "^1.0.1",
+    "file-loader": "^3.0.1",
     "style-loader": "^0.23.1",
     "typescript": "^3.3.3333",
     "typings-for-css-modules-loader": "^1.7.0",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"

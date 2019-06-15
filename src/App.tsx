@@ -1,21 +1,32 @@
 import * as React from 'react'
-import { Nav, Logo, Container, Banner, NavLink, Title, PanelContainer, VlogPanel, VlogCard, TechoPanel, Mask, Footer } from './Styled/Homepage'
+import {
+  Nav,
+  Logo,
+  Container,
+  Banner,
+  NavLink,
+  Title,
+  PanelContainer,
+  VlogPanel,
+  VlogCardTitle,
+  VlogCard,
+  VlogCardMask,
+  TechoPanel,
+  Mask,
+  PhotoPanel,
+  PhotoCol,
+  PhotoColVertical,
+  Footer
+} from './Styled/Homepage'
 
 import 'normalize.css'
+import * as playIcon from './assets/play.png';
 
 const { useState, useEffect } = React
 
 const App: React.SFC = () => {
-  const [count, setCount] = useState('s')
-  const [num] = useState(1)
-  const handleClick = () => setCount(count + 1)
+  const navLinkList:string[] = ['首頁', 'VLOG', '手賬', '攝影', '關於我'];
 
-  // componentdidmount
-  useEffect(() => {
-    console.log('Count has changed')
-  }, [num])
-
-  const navLinkList:string[] = ['HOME', 'VLOG', 'TECHO', 'PHOTO', 'ABOUT'];
   function LinkList(props: { links: string[]; }) {
     const links = props.links;
     const listItems = links.map((link: string) =>
@@ -32,20 +43,25 @@ const App: React.SFC = () => {
     title: string;
     date: string;
     cover: string;
+    link: string;
   }
 
+  // mock
   const vlogCardList: Array<Card> = [{
-    title: 'vlog title',
-    date: '2019-1-1',
-    cover: 'https://karen-z.s3-us-west-1.amazonaws.com/vlog-1.jpg'
+    title: '苏梅岛 Vlog / 海岛旅拍 / Vlog-3 / 慢悠悠的岛上时光',
+    date: '2019-5-2',
+    cover: 'https://karen-z.s3-us-west-1.amazonaws.com/vlog-1.jpg',
+    link: 'https://www.bilibili.com/video/av51163552'
   }, {
-    title: 'vlog title 333',
-    date: '2019-1-1',
-    cover: 'https://s3.us-west-1.amazonaws.com/karen-z/vlog-2.jpg'
+    title: '东京旅行 Vlog / iPhoneX + freevision vilta m拍摄 / 初投稿',
+    date: '2018-10-12',
+    cover: 'https://s3.us-west-1.amazonaws.com/karen-z/vlog-2.jpg',
+    link: 'https://www.bilibili.com/video/av33643965'
   }, {
-    title: 'vlog titl 444',
+    title: '澳门旅行 Vlog / DJI Osmo Pocket / Vlog-2',
     date: '2019-1-1',
-    cover: 'https://karen-z.s3-us-west-1.amazonaws.com/vlog-3.jpg'
+    cover: 'https://karen-z.s3-us-west-1.amazonaws.com/vlog-3.jpg',
+    link: 'https://www.bilibili.com/video/av43903300'
   }]
 
   function VlogCardList(props: { cards: Array<Card>  }) {
@@ -53,10 +69,14 @@ const App: React.SFC = () => {
     const cardItems = cards.map((card) =>
       <VlogCard key={card.title}>
         <img src={card.cover} alt={card.title} />
-        <div>
-          <span>{card.title}</span>
+        <VlogCardMask href={card.link} target="_blank">
+          <img src={playIcon} alt="play" />
+        </VlogCardMask>
+        
+        <p>
+          <VlogCardTitle>{card.title}</VlogCardTitle>
           <span>{card.date}</span>          
-        </div>
+        </p>
       </VlogCard>
     );
     return (
@@ -88,6 +108,15 @@ const App: React.SFC = () => {
           <img src="https://karen-z.s3-us-west-1.amazonaws.com/WechatIMG568.jpeg" alt=""/>
         </TechoPanel>
         <Title>PHOTO</Title>
+        <PhotoPanel>
+          <PhotoCol>
+            <img src="https://karen-z.s3-us-west-1.amazonaws.com/photo-2.jpg" alt=""/>
+            <img src="https://karen-z.s3-us-west-1.amazonaws.com/photo-3.jpg" alt=""/>            
+          </PhotoCol>
+          <PhotoColVertical>
+            <img src="https://s3.us-west-1.amazonaws.com/karen-z/photo-1.png" alt=""/>            
+          </PhotoColVertical>
+        </PhotoPanel>
       </PanelContainer>
       <Footer>© Karen Zhong  2019</Footer>
     </Container>

@@ -9,8 +9,8 @@ const Container = styled.div`
 const Nav = styled.div`
   width: 999px;
   margin: 0 auto;
-  height: 140px;
-  line-height: 140px;
+  height: 110px;
+  line-height: 110px;
   font-weight: bold;
   display: flex;
 `;
@@ -22,10 +22,14 @@ const Logo = styled.div`
 `
 
 const NavLink = styled.a`
-  font-size: 23px;
+  font-size: 20px;
+  transition: .3s;
   margin-right: 15px;
   text-decoration: none;
   color: rgba(51, 51, 51, 0.49);
+  &:hover {
+    color: #F46142;
+  }
 `
 
 const Banner = styled.div`
@@ -41,11 +45,14 @@ const Banner = styled.div`
     margin: 0 auto;
     position: relative;
   }
+  p {
+    margin: 0;
+  }
   img {
     position: absolute;
-    top: -72px;
+    top: -40px;
     right: 0;
-    width: 250px;
+    width: 230px;
     background: #eee;
   }
 `;
@@ -66,22 +73,67 @@ const VlogPanel = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  height: 200px;
   height: 100%;
   margin: 5px 0 20px 0;
 `
 
-const VlogCard = styled.div`
+const VlogCardMask = styled.a`
+  transition: .3s;
+  cursor: pointer;
+  width: 278px;
+  height: 174px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
+    width: 30px;
+    height: 30px;
+  }
+`
+
+const VlogCard = styled.div`
+  position: relative;
+  > img {
     width: 278px;
     height: 174px;
     border-radius: 3px;
   }
-  div {
+  p {
     font-size: 12px;
     color: #999;
     display: flex;
     justify-content: space-between;
   }
+  &:hover ${VlogCardMask} {
+    opacity: 1;
+  }
+`
+
+const VlogCardTitle = styled.span`
+  width: 200px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`
+
+const Mask = styled.div`
+  position: absolute;
+  cursor: pointer;
+  width: 999px;
+  height: 485.7px;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: .3s;
+  z-index: 1;
 `
 
 const TechoPanel = styled.div`
@@ -98,17 +150,38 @@ const TechoPanel = styled.div`
     z-index: 10;
   }
   img {
-    /* position: absolute; */
     width: 999px;
+  }
+  &:hover ${Mask} {
+    opacity: 1;
   }
 `
 
-const Mask = styled.div`
-  position: absolute;
+const PhotoPanel = styled.div`
+  display: flex;
   width: 999px;
-  height: 485.7px;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  height: 667px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #333;
+`
+const PhotoCol = styled.div`
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+    height: auto;
+  }
+`
+
+const PhotoColVertical = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  img {
+    height: 100%;
+  }
 `
 
 const Footer = styled.div`
@@ -132,7 +205,12 @@ export {
   PanelContainer,
   VlogPanel,
   VlogCard,
+  VlogCardMask,
+  VlogCardTitle,
   TechoPanel,
+  PhotoPanel,
+  PhotoCol,
+  PhotoColVertical,
   Mask,
   Footer
 };
