@@ -25,13 +25,37 @@ import * as playIcon from './assets/play.png';
 const { useState, useEffect } = React
 
 const App: React.SFC = () => {
-  const navLinkList:string[] = ['首頁', 'VLOG', '手賬', '攝影', '關於我'];
 
-  function LinkList(props: { links: string[]; }) {
+  interface Nav {
+    title: string;
+    route: string;
+  }
+
+  const navLinkList:Nav[] = [{
+    title: '首頁',
+    route: '/homepage'
+  }, {
+    title: 'VLOG',
+    route: '/vlog'
+  }, {
+    title: '手賬',
+    route: '/techo'
+  }, {
+    title: '食物',
+    route: '/food'
+  }, {
+    title: '攝影',
+    route: '/photo'
+  }, {
+    title: '關於我',
+    route: '/about'
+  }];
+
+  function LinkList(props: { links: Nav[] }) {
     const links = props.links;
-    const listItems = links.map((link: string) =>
-      <NavLink key={link.toString()} href={link}>
-        {link}
+    const listItems = links.map((link: Nav) =>
+      <NavLink key={link.title} href={link.route}>
+        {link.title}
       </NavLink>
     );
     return (

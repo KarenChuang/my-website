@@ -60,13 +60,14 @@ const Banner = styled.div`
 const PanelContainer = styled.div`
   height: 100%;
   width: 999px;
-  margin: 0 auto;
+  margin: 50px auto;
 `;
 
 const Title = styled.div`
   font-family: 'Impact';
   color: #444444;
   font-size: 25px;
+  margin-top: 50px;
 `;
 
 const VlogPanel = styled.div`
