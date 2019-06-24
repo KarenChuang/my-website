@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
 module.exports = {
   entry: {
@@ -52,5 +53,6 @@ module.exports = {
     new webpack.WatchIgnorePlugin([
       /css\.d\.ts$/
     ]),
+    new HtmlWebpackPlugin({template: './src/index.html'})
   ]
 };
