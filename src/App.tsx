@@ -38,7 +38,7 @@ const App: React.SFC = () => {
     title: 'VLOG',
     route: '/vlog'
   }, {
-    title: '手賬',
+    title: '手帳',
     route: '/techo'
   }, {
     title: '食物',
