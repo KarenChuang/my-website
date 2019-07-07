@@ -6,6 +6,10 @@ const Container = styled.div`
   min-height: 100vh;
 `
 
+const RouteContainer = styled.div`
+  min-height: calc(100vh - 110px - 80px);
+`
+
 const Nav = styled.div`
   width: 999px;
   margin: 0 auto;
@@ -13,6 +17,19 @@ const Nav = styled.div`
   line-height: 110px;
   font-weight: bold;
   display: flex;
+  a {
+    font-size: 20px;
+    transition: .3s;
+    margin-right: 15px;
+    text-decoration: none;
+    color: rgba(51, 51, 51, 0.49);
+    &:hover {
+      color: #F46142;
+    }
+  }
+  .selected {
+    color: #F46142;
+  }
 `;
 
 const Logo = styled.div`
@@ -21,20 +38,10 @@ const Logo = styled.div`
   margin-right: 100px;
 `
 
-const NavLink = styled.a`
-  font-size: 20px;
-  transition: .3s;
-  margin-right: 15px;
-  text-decoration: none;
-  color: rgba(51, 51, 51, 0.49);
-  &:hover {
-    color: #F46142;
-  }
-`
 
 const Banner = styled.div`
-  height: 160px;
-  line-height: 160px;
+  height: 130px;
+  line-height: 130px;
   width: 100%;
   background: #333;
   margin-bottom: 20px;
@@ -52,7 +59,8 @@ const Banner = styled.div`
     position: absolute;
     top: -40px;
     right: 0;
-    width: 230px;
+    width: 200px;
+    height: 200px;
     background: #eee;
   }
 `;
@@ -60,6 +68,7 @@ const Banner = styled.div`
 const PanelContainer = styled.div`
   height: 100%;
   width: 999px;
+  overflow: hidden;
   margin: 50px auto;
 `;
 
@@ -67,23 +76,22 @@ const Title = styled.div`
   font-family: 'Impact';
   color: #444444;
   font-size: 25px;
-  margin-top: 50px;
+  margin-top: 10px;
 `;
 
 const VlogPanel = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: relative;
   height: 200px;
-  height: 100%;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 30px 0;
 `
 
 const VlogCardMask = styled.a`
-  transition: .3s;
+  transition: .7s;
   cursor: pointer;
-  width: 278px;
-  height: 174px;
+  width: 100%;
+  height: 100%;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
@@ -100,13 +108,18 @@ const VlogCardMask = styled.a`
 
 const VlogCard = styled.div`
   position: relative;
+  margin-right: 20px;
+  width: 260px;
+  height: 173px;
+  flex-shrink: 0;
   > img {
-    width: 278px;
-    height: 174px;
+    width: 100%;
+    height: 100%;
     border-radius: 3px;
   }
   p {
     font-size: 12px;
+    margin: 5px 0;
     color: #999;
     display: flex;
     justify-content: space-between;
@@ -117,7 +130,7 @@ const VlogCard = styled.div`
 `
 
 const VlogCardTitle = styled.span`
-  width: 200px;
+  width: 170px;
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -138,7 +151,7 @@ const Mask = styled.div`
 `
 
 const TechoPanel = styled.div`
-  margin: 5px 0 20px 0;
+  margin: 5px 0 30px 0;
   position: relative;
   display: flex;
   justify-content: center;
@@ -152,6 +165,7 @@ const TechoPanel = styled.div`
   }
   img {
     width: 999px;
+    height: 485.7px;
   }
   &:hover ${Mask} {
     opacity: 1;
@@ -198,10 +212,10 @@ const Footer = styled.div`
 
 export {
   Container,
+  RouteContainer,
   Logo,
   Nav,
   Banner,
-  NavLink,
   Title,
   PanelContainer,
   VlogPanel,

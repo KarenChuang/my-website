@@ -8,7 +8,8 @@ module.exports = {
   },
   output: {
     path: __dirname + '/public',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
@@ -17,9 +18,10 @@ module.exports = {
     }
   },
   devServer: {
+    port: 8088,
     contentBase: path.join(__dirname, 'public'),
     compress: true,
-    port: 8088
+    historyApiFallback: true,
   },
   module: {
     rules: [{

@@ -12,10 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-router-dom": "^4.3.4",
     "@types/styled-components": "^4.1.15",
     "normalize.css": "^8.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-router-dom": "^5.0.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
