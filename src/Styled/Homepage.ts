@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+
+interface VlogProps {
+  transformValue: number
+}
+
+
 const Container = styled.div`
   font-size: 14px;
   color: #212121;
@@ -73,21 +79,57 @@ const PanelContainer = styled.div`
 `;
 
 const Title = styled.div`
-  font-family: 'Impact';
-  color: #444444;
-  font-size: 25px;
   margin-top: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  span {
+    font-family: 'Impact';
+    color: #444444;
+    font-size: 25px;
+  }
+  a {
+    font-size: 12px;
+    color: #888;
+    text-decoration: none;
+  }
 `;
 
 const VlogPanel = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   position: relative;
   height: 200px;
   margin: 5px 0 30px 0;
+  .vlog-list {
+    display: flex;
+    transition: 0.3s;
+    transform: translateX(${( props: VlogProps ) => props.transformValue }px);
+  }
+  .vlog-bar {
+    position: absolute;
+    height: 80px;
+    text-align: center;
+    line-height: 90px;
+    width: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    top: 40px;
+    z-index: 1;
+    cursor: pointer;
+    > img {
+      width: 20px;
+    }
+  }
+  .bar-left {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .bar-right {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
 `
 
-const VlogCardMask = styled.a`
+const VlogCardMask = styled.div`
   transition: .7s;
   cursor: pointer;
   width: 100%;
@@ -157,6 +199,7 @@ const TechoPanel = styled.div`
   justify-content: center;
   align-items: center;
   p {
+    cursor: pointer;
     position: absolute;
     font-size: 40px;
     margin: 0 auto;

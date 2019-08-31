@@ -20,7 +20,6 @@ import About from './Components/About';
 const { useState, useEffect } = React
 
 const App: React.SFC = () => {
-
   interface Nav {
     title: string;
     route: string;
@@ -75,7 +74,7 @@ const App: React.SFC = () => {
             <Route path="/about" component={About}/>
           </Switch>
         </RouteContainer>
-        <Footer>© Karen Zhong  2019</Footer>
+        <Footer>Karen Zhong</Footer>
       </Container>
     </Router>
     )
