@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 
-interface VlogProps {
-  transformValue: number
-}
-
+// interface VlogProps {
+//   transformValue: number
+// }
 
 const Container = styled.div`
   font-size: 14px;
@@ -103,7 +102,6 @@ const VlogPanel = styled.div`
   .vlog-list {
     display: flex;
     transition: 0.3s;
-    transform: translateX(${( props: VlogProps ) => props.transformValue }px);
   }
   .vlog-bar {
     position: absolute;
