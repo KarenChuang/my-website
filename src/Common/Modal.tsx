@@ -7,7 +7,6 @@ import {
   ModalMask,
 } from '../Styled/Modal'
 
-
 interface ModalProps {
   visible: boolean,
   hide: any,

@@ -1,13 +1,16 @@
 import * as React from 'react'
-import * as playIcon from './assets/play.png'
+
+import * as starImage from './assets/star.png'
+
 import 'normalize.css'
+
 import {
   Nav,
-  Logo,
   Container,
   RouteContainer,
+  Mask,
+  Name,
   // NavLink,
-  Footer
 } from './Styled/Homepage'
 
 import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from "react-router-dom"
@@ -27,20 +30,28 @@ const App: React.SFC = () => {
 
   const navLinkList:Nav[] = [{
     title: '首頁',
-    route: '/homepage'
+    route: '/home'
   }, {
     title: 'VLOG',
     route: '/vlog'
-  }, {
-    title: '手帳',
-    route: '/techo'
-  }, {
+  }, 
+  // {
+  //   title: '手帳',
+  //   route: '/techo'
+  // }, 
+  {
     title: '食物',
     route: '/food'
-  }, {
-    title: '攝影',
-    route: '/photo'
-  }, {
+  }, 
+  {
+    title: '電影/劇',
+    route: '/movies'
+  }, 
+  // {
+  //   title: '攝影',
+  //   route: '/photo'
+  // }, 
+  {
     title: '關於我',
     route: '/about'
   }];
@@ -53,29 +64,29 @@ const App: React.SFC = () => {
       </NavLink>
     );
     return (
-      <div>{listItems}</div>
+      <div className="nav-panel">{listItems}</div>
     );
   }
 
   return (
     <Router>
-      <Container>
-        <Nav>
-          <Logo>Karen's</Logo>
-          <LinkList links={navLinkList} />
-        </Nav>
+      <Redirect from="/" to="/home" />
+
         <RouteContainer>
-          <Redirect from="/" to="/homepage" />
+          <Nav>
+            <img className="logo" src={starImage} alt=""/>
+            <LinkList links={navLinkList} />
+          </Nav>
+
           <Switch>
-            <Route path="/homepage" component={Homepage}/>
+            <Route path="/home" component={Homepage}/>
             <Route path="/vlog" component={Vlog}/>
             <Route path="/techo" component={Techo}/>
             <Route path="/food" component={Food}/>
             <Route path="/about" component={About}/>
           </Switch>
         </RouteContainer>
-        <Footer>Karen Zhong</Footer>
-      </Container>
+
     </Router>
     )
 }
