@@ -42,9 +42,11 @@ const Container = styled.div`
 
 const Card = styled.a`
 text-decoration: none;
-  width: 300px;
+  /* width: 300px; */
   /* height: 175px; */
   background: rgba(255, 255, 255, .9);
+  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.05);
+  
   border-radius: 2px;
   margin: 10px 6px 30px 6px;
   display: flex;

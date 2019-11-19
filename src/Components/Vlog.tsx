@@ -1,11 +1,11 @@
 // import * as React from 'react';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import vlogData from '../../src/vlog.json'
 import {
   Page,
   Container,
   Card,
-  
 } from '../Styled/Vlog'
 
 import * as playIcon from '../assets/play.png'
@@ -14,22 +14,22 @@ import * as playIcon from '../assets/play.png'
 
 const Vlog: React.SFC<{}> = () => {
 
-  const [vlogData, setVlogData] = useState([])
+  // const [vlogData, setVlogData] = useState([])
 
-  const fetchData = () => {
-    axios(
-      'http://localhost:8080/api/vlogs',
-    ).then(({ data }) => {
-      setVlogData(data.data.list)
-    }).catch((err) => {
-      console.log(err)
-    })
+  // const fetchData = () => {
+  //   axios(
+  //     'http://localhost:8080/api/vlogs',
+  //   ).then(({ data }) => {
+  //     setVlogData(data.data.list)
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
     
-  }
+  // }
 
-  useEffect(() => {
-    fetchData()
-  }, []);
+  // useEffect(() => {
+  //   fetchData()
+  // }, []);
 
 
   interface Card {
@@ -44,7 +44,7 @@ const Vlog: React.SFC<{}> = () => {
     <Page>
       <Container>
       {
-        vlogData && vlogData.map((card: Card) =>
+        vlogData && vlogData.data.list.map((card: Card) =>
           <Card key={card.title} href={ card.link } target="_blank">
             <div className="image-panel">
               <div className="mask"></div>

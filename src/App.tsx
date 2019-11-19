@@ -16,7 +16,7 @@ import {
 import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from "react-router-dom"
 import Homepage from './Components/Homepage';
 import Vlog from './Components/Vlog';
-import Techo from './Components/Techo';
+import Movies from './Components/Movies';
 import Food from './Components/Food';
 import About from './Components/About';
 
@@ -34,11 +34,7 @@ const App: React.SFC = () => {
   }, {
     title: 'VLOG',
     route: '/vlog'
-  }, 
-  // {
-  //   title: '手帳',
-  //   route: '/techo'
-  // }, 
+  },
   {
     title: '食物',
     route: '/food'
@@ -46,11 +42,7 @@ const App: React.SFC = () => {
   {
     title: '電影/劇',
     route: '/movies'
-  }, 
-  // {
-  //   title: '攝影',
-  //   route: '/photo'
-  // }, 
+  },
   {
     title: '關於我',
     route: '/about'
@@ -70,7 +62,7 @@ const App: React.SFC = () => {
 
   return (
     <Router>
-      <Redirect from="/" to="/home" />
+      {/* <Redirect from="/" exact to="/home" /> */}
 
         <RouteContainer>
           <Nav>
@@ -79,9 +71,10 @@ const App: React.SFC = () => {
           </Nav>
 
           <Switch>
+            <Route path="/" component={Homepage} exact />
             <Route path="/home" component={Homepage}/>
             <Route path="/vlog" component={Vlog}/>
-            <Route path="/techo" component={Techo}/>
+            <Route path="/movies" component={Movies}/>
             <Route path="/food" component={Food}/>
             <Route path="/about" component={About}/>
           </Switch>

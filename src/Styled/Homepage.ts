@@ -76,7 +76,7 @@ const Nav = styled.div`
   justify-content: space-between;
 
   /* flex-direction: row-reverse; */
-  background: #13382a;
+  background: #388766;
   padding: 0 20px;
   /* border-radius: 10px; */
   /* box-shadow: 2px 2px 11px -5px rgba(0,0,0,0.75); */
@@ -92,15 +92,10 @@ const Nav = styled.div`
     transition: opacity .3s;
     margin-right: 15px;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
-    &:hover {
-      /* color: #1c3a2d; */
-      opacity: .5;
-    }
+    color: rgba(255, 255, 255, .7);
   }
   .selected {
-    /* color: #1c3a2d; */
-    border-bottom: 3px solid #ba995a;
+    border-bottom: 3px solid #cdb88f;
     border-radius: 1px;
   }
 `;
