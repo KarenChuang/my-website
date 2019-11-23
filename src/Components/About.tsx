@@ -12,8 +12,7 @@ const About: React.SFC<{}> = () => {
       <Container>
         <img className="pic" src={pic} alt=""/>
         <div>
-
-        你好，我是Karen，是一名前端工程師，這是我正在建設中的個人網站，我將會在這裡更新的我拍攝的vlog視頻/美食/电影记录等等。
+        你好，我是Karen，是一名前端工程師，這是我正在建設中的個人網站，我將會在這裡更新的我的vlog視頻/美食/电影记录等等。
         <p>
           GitHub: <a href="https://github.com/KarenChuang/my-website" target="_blank">my-website</a>
         </p>

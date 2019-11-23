@@ -62,7 +62,6 @@ const App: React.SFC = () => {
 
   return (
     <Router>
-      {/* <Redirect from="/" exact to="/home" /> */}
 
         <RouteContainer>
           <Nav>
@@ -71,6 +70,7 @@ const App: React.SFC = () => {
           </Nav>
 
           <Switch>
+            <Redirect exact from="/" to="/home" />
             <Route path="/" component={Homepage} exact />
             <Route path="/home" component={Homepage}/>
             <Route path="/vlog" component={Vlog}/>
@@ -79,6 +79,7 @@ const App: React.SFC = () => {
             <Route path="/about" component={About}/>
           </Switch>
         </RouteContainer>
+        {/* <Redirect from="/" to="/home" /> */}
 
     </Router>
     )
