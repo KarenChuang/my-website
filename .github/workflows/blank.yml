@@ -12,6 +12,7 @@ jobs:
       uses: actions/checkout@master
     - name: npm install, build
       run:
+        npm install
         npm run build
       env:
         ACCESS_TOKEN: ${{ secrets.token }}
