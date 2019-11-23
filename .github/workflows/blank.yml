@@ -14,8 +14,8 @@ jobs:
       run: npm install && npm run build
       env:
         ACCESS_TOKEN: ${{ secrets.token }}
-    - name: log
-      run: echo ls $(ls -la)
+    # - name: log
+    #   run: echo ls $(ls -la)
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete
