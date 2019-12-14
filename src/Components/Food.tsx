@@ -1,7 +1,7 @@
-import * as React from 'react';
 import * as food from '../assets/food.jpeg'
 import * as locationIcon from '../assets/location.svg'
-import foodData from '../../src/food.json'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 import {
   Page,
@@ -9,6 +9,22 @@ import {
 } from '../Styled/Food'
 
 const Food: React.SFC<{}> = () => {
+
+  const [foodData, setFoodData] = useState([])
+
+  const fetchData = () => {
+    axios(
+      'http://localhost:8080/api/foods',
+    ).then(({ data }) => {
+      setFoodData(data.data.list)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
 
   interface Food {
     id: number;
@@ -24,7 +40,7 @@ const Food: React.SFC<{}> = () => {
     <Page>
       <Container>
         {
-          foodData.data.list.map(( food: Food ) => 
+          foodData.map(( food: Food ) => 
             <div key={food.id} className="plate">
               <img className="pic" src={food.pic} alt=""/>
               <div className="info">

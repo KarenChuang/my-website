@@ -19,7 +19,7 @@ const Container = styled.div`
   max-width: 1080px;
   margin: 0 auto;
   .pic {
-    width: 45%;
+    width: 35%;
   }
   > div {
     background: linear-gradient(#388766, #28A585);
