@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import vlogData from '../../src/vlog.json'
 import {
   Page,
   Container,
@@ -15,7 +14,7 @@ const Vlog: React.SFC<{}> = () => {
 
   const fetchData = () => {
     axios(
-      'http://localhost:8080/api/vlogs',
+      'http://karen-b7ed77202e7c274a.elb.us-west-1.amazonaws.com/api/vlogs',
     ).then(({ data }) => {
       setVlogData(data.data.list)
     }).catch((err) => {

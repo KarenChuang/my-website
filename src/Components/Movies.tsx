@@ -1,4 +1,5 @@
-import * as movies from '../assets/movies.png'
+import * as star1 from '../assets/star1.png'
+import * as star2 from '../assets/star2.png'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
@@ -6,6 +7,7 @@ import {
   Page,
   Container,
   Card,
+  Rank
 } from '../Styled/Movies'
 
 const Movies: React.SFC<{}> = () => {
@@ -14,7 +16,7 @@ const Movies: React.SFC<{}> = () => {
 
   const fetchData = () => {
     axios(
-      'http://localhost:8080/api/movies',
+      'http://karen-b7ed77202e7c274a.elb.us-west-1.amazonaws.com/api/movies',
     ).then(({ data }) => {
       setMovieData(data.data.list)
     }).catch((err) => {
@@ -26,6 +28,17 @@ const Movies: React.SFC<{}> = () => {
     fetchData()
   }, []);
 
+  function RankProp(props: any) {
+    const listItems = [1,2,3,4,5].map((ele) =>
+     <Rank key={ele}>
+        { ele > props.rank ? <img src={star1} /> : <img src={star2} alt=""/>}
+     </Rank>
+    );
+    return (
+      <div className="rank-container">{listItems}</div>
+    );
+  }
+
   return (
     <Page>
       <Container>
@@ -36,9 +49,7 @@ const Movies: React.SFC<{}> = () => {
               <div className="info">
                 <p className="title">{ movie.title }</p>
                 <p className="date">{ movie.date }</p>
-                <p className="rank">
-                  {movie.rank}
-                </p>
+                <RankProp rank={movie.rank} />
               </div>
           </Card>
           ))

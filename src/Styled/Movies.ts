@@ -10,9 +10,15 @@ const Page = styled.div`
   background: #194432;
 `
 
+const Rank = styled.div`
+  > img {
+    width: 12px;
+  }
+`
+
 const Container = styled.div`
   font-size: 14px;
-  padding: 90px 20px 20px 20px;
+  padding: 90px 0;
   display: flex;
   flex-wrap: wrap;
   max-width: 1080px;
@@ -79,12 +85,14 @@ const Card = styled.div`
       margin: 3px;
       color: #113e2b;
     }
-    .rank {
-      font-size: 13px;
-      margin: 3px;
-      color: #113e2b;
+    .rank-container {
+      margin: 5px;
+      display: flex;
+      justify-content: center;
     }
   }
 `
 
-export { Page, Container, Card }
+
+
+export { Page, Container, Card, Rank }

@@ -14,7 +14,7 @@ const Food: React.SFC<{}> = () => {
 
   const fetchData = () => {
     axios(
-      'http://localhost:8080/api/foods',
+      'http://karen-b7ed77202e7c274a.elb.us-west-1.amazonaws.com/api/foods',
     ).then(({ data }) => {
       setFoodData(data.data.list)
     }).catch((err) => {

@@ -51,6 +51,7 @@ const Container = styled.div`
     position: absolute;
     left: -40px;
     border-radius: 10px;
+    filter: contrast(115%);
   }
   .info {
     color: #fff;
