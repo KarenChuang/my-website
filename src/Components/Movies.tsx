@@ -16,7 +16,7 @@ const Movies: React.SFC<{}> = () => {
 
   const fetchData = () => {
     axios(
-      'http://karen-b7ed77202e7c274a.elb.us-west-1.amazonaws.com/api/movies',
+      'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/movies',
     ).then(({ data }) => {
       setMovieData(data.data.list)
     }).catch((err) => {

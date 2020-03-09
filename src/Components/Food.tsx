@@ -14,7 +14,7 @@ const Food: React.SFC<{}> = () => {
 
   const fetchData = () => {
     axios(
-      'http://karen-b7ed77202e7c274a.elb.us-west-1.amazonaws.com/api/foods',
+      'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/foods',
     ).then(({ data }) => {
       setFoodData(data.data.list)
     }).catch((err) => {
@@ -25,7 +25,6 @@ const Food: React.SFC<{}> = () => {
   useEffect(() => {
     fetchData()
   }, []);
-
   interface Food {
     id: number;
     title: string;
@@ -40,8 +39,8 @@ const Food: React.SFC<{}> = () => {
     <Page>
       <Container>
         {
-          foodData.map(( food: Food ) => 
-            <div key={food.id} className="plate">
+          foodData.map(( food: Food, index ) => 
+            <div key={food.id + index} className="plate">
               <img className="pic" src={food.pic} alt=""/>
               <div className="info">
                 <p className="food-name">{food.title}</p>

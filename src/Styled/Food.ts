@@ -8,6 +8,7 @@ interface Props {
 const Page = styled.div`
   min-height: 100vh;
   width: 100vw;
+  background: rgb(247,247,247)
 
 `
 
@@ -26,7 +27,7 @@ const Container = styled.div`
     /* border: 4px solid #388766; */
     box-shadow: 0 2px 15px 0 rgba(0,0,0,0.1);
     border-radius: 10px;
-    background: #194432;
+    background: #f1f1f1;
     margin: 10px 20px 50px 20px;
     display: flex;
     align-items: center;
@@ -54,7 +55,7 @@ const Container = styled.div`
     filter: contrast(115%);
   }
   .info {
-    color: #fff;
+    color: #666;
     position: absolute;
     right: 10px;
     text-align: right;
@@ -67,6 +68,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: row-reverse;
       margin-bottom: 10px;
+      color: #f1f1f1;
       > span {
         font-size: 12px;
         border-radius: 4px;
@@ -82,7 +84,7 @@ const Container = styled.div`
     }
     .restaurant-name {
       font-size: 14px;
-      color: #e6e6e6;
+      color: #333;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -95,7 +97,7 @@ const Container = styled.div`
     }
     .date {
       font-size: 14px;
-      color: #e6e6e6;
+      color: #333;
       > span {
         margin-left: 5px;
       }

@@ -51,6 +51,15 @@ const Mask = styled.div`
     width: 50px;
     height: 50px;
   }
+  @media (max-width: 600px) {
+    p {
+      font-size: 35px;
+    }
+    .ice-logo {
+      width: 35px;
+      height: 35px;
+    }
+  }
 `
 
 const Name = styled.div`
@@ -74,13 +83,23 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* flex-direction: row-reverse; */
   background: #388766;
   padding: 0 20px;
   z-index: 20;
-  /* border-radius: 10px; */
-  /* box-shadow: 2px 2px 11px -5px rgba(0,0,0,0.75); */
+
+  @media (max-width: 600px) {
+    .nav-panel {
+      display: flex;
+      /* background: #222; */
+      height: 50px;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+      justify-content: flex-end;
+      a {
+        margin-right: 8px;
+      }
+    }
+  }
 
   .logo {
     width: 35px;

@@ -23,6 +23,9 @@ const Container = styled.div`
   flex-wrap: wrap;
   max-width: 1080px;
   margin: 0 auto;
+  @media (max-width: 600px) {
+    justify-content: center;
+  }
 `
 
 const Card = styled.div`
