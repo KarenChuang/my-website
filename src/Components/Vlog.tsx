@@ -1,29 +1,33 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
 import {
   Page,
   Container,
   Card,
+  SkeletonBox,
 } from '../Styled/Vlog'
 
 const Vlog: React.SFC<{}> = () => {
 
   const [vlogData, setVlogData] = useState([])
+  const [loaded, setLoaded] = useState(false)
 
   const fetchData = () => {
     axios(
       'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/vlogs',
     ).then(({ data }) => {
+      setLoaded(true)
       setVlogData(data.data.list)
     }).catch((err) => {
-      console.log(err)
+      setLoaded(true)
     })
   }
 
   useEffect(() => {
     fetchData()
   }, []);
-
 
   interface Card {
     title: string;
@@ -37,7 +41,7 @@ const Vlog: React.SFC<{}> = () => {
     <Page>
       <Container>
       {
-        vlogData && vlogData.map((card: Card) =>
+        (vlogData && vlogData.length && loaded) ? vlogData.map((card: Card) =>
           <Card key={card.title} href={ card.link } target="_blank">
             <div className="image-panel">
               <img className="cover" src={ card.cover } />
@@ -50,7 +54,13 @@ const Vlog: React.SFC<{}> = () => {
                 <span>{ card.location }</span>
               </div>
           </Card>
-      )}
+      ) : 
+        <SkeletonTheme color="#fff" highlightColor="#eee">
+          <p>
+            <Skeleton wrapper={SkeletonBox} duration={4} height={334} width={340} count={6} />
+          </p>
+        </SkeletonTheme>
+      }
       </Container>
     </Page>
   )

@@ -22,11 +22,6 @@ const Page = styled.div`
   min-height: 100vh;
   width: 100vw;
   background: rgb(247, 247, 247);
-  /* background-image: url(${vloBgSrc});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed */
 `;
 
 const Container = styled.div`
@@ -42,7 +37,6 @@ const Container = styled.div`
 const Card = styled.a`
   text-decoration: none;
   width: 340px;
-  /* height: 175px; */
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -107,4 +101,9 @@ const Card = styled.a`
   }
 `;
 
-export { Page, Container, Card };
+const SkeletonBox = styled.span`
+  display: inline-block;
+  margin: 0px 20px 20px 0px;
+`;
+
+export { Page, Container, Card, SkeletonBox };

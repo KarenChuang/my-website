@@ -18,8 +18,10 @@
     "normalize.css": "^8.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-loading-skeleton": "^2.0.1",
     "react-router-dom": "^5.0.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "styled-reset": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

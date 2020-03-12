@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import { Reset } from 'styled-reset'
 import * as starImage from './assets/star.png'
 
 import 'normalize.css'
@@ -62,7 +62,7 @@ const App: React.SFC = () => {
 
   return (
     <Router>
-
+        <Reset />
         <RouteContainer>
           <Nav>
             <img className="logo" src={starImage} alt=""/>
