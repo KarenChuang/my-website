@@ -96,6 +96,16 @@ const Card = styled.div`
   }
 `
 
+const SkeletonBox = styled.span`
+  display: inline-block;
+  margin: 10px 20px;
+  .react-loading-skeleton  {
+    border-radius: 10px;
+    opacity: .8;
+  }
+`;
 
 
-export { Page, Container, Card, Rank }
+
+
+export { Page, Container, Card, Rank, SkeletonBox }

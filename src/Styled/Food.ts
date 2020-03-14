@@ -105,4 +105,13 @@ const Container = styled.div`
   }
 `
 
-export { Page, Container }
+
+const SkeletonBox = styled.span`
+  display: inline-block;
+  margin: 0px 40px 20px 0px;
+  .react-loading-skeleton  {
+    border-radius: 10px;
+  }
+`;
+
+export { Page, Container, SkeletonBox }

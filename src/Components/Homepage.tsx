@@ -14,9 +14,9 @@ const Homepage: React.SFC<{}> = () => {
       <Mask>
         <div>
           {/* <p>Karen Zhong.</p> */}
-          <img className="ice-logo" src={iceImage} alt=""/>
-          <p>冰冰冰冰冰清</p>
-          <img className="ice-logo" src={iceImage} alt=""/>
+          {/* <img className="ice-logo" src={iceImage} alt=""/> */}
+          <p>Karen Zhong</p>
+          {/* <img className="ice-logo" src={iceImage} alt=""/> */}
 
         </div>
       </Mask>

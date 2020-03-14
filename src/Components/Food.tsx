@@ -2,23 +2,28 @@ import * as food from '../assets/food.jpeg'
 import * as locationIcon from '../assets/location.svg'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import {
   Page,
   Container,
+  SkeletonBox,
 } from '../Styled/Food'
 
 const Food: React.SFC<{}> = () => {
 
   const [foodData, setFoodData] = useState([])
+  const [loaded, setLoaded] = useState(false)
 
   const fetchData = () => {
     axios(
       'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/foods',
     ).then(({ data }) => {
       setFoodData(data.data.list)
+      setLoaded(true)
     }).catch((err) => {
       console.log(err)
+      setLoaded(true)
     })
   }
 
@@ -39,7 +44,7 @@ const Food: React.SFC<{}> = () => {
     <Page>
       <Container>
         {
-          foodData.map(( food: Food, index ) => 
+          (foodData && foodData.length && loaded) ? foodData.map(( food: Food, index ) => 
             <div key={food.id + index} className="plate">
               <img className="pic" src={food.pic} alt=""/>
               <div className="info">
@@ -56,7 +61,12 @@ const Food: React.SFC<{}> = () => {
                 </p>
               </div>
             </div>
-          )
+          ) : 
+          <SkeletonTheme color="#fff" highlightColor="#eee">
+            <p>
+              <Skeleton wrapper={SkeletonBox} duration={4} height={184} width={480} count={6} />
+            </p>
+          </SkeletonTheme>
         }
       </Container>
     </Page>

@@ -51,7 +51,7 @@ const Card = styled.a`
     width: 340px;
     height: 213px;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 2px 2px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@ const Card = styled.a`
     .cover {
       width: 340px;
       height: 213px;
-      border-radius: 2px;
+      border-radius: 2px 2px 0 0;
       position: absolute;
       transition: .35s ease-in-out;
       top: 0;
