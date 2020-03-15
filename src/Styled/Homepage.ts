@@ -3,79 +3,66 @@ import styled from 'styled-components';
 const bgSrc = require('../assets/bg.jpg')
 
 const Container = styled.div`
-  background: #2f4b31;
-
-  font-size: 14px;
-  color: #212121;
+  color: #333;
+  position: fixed;
+  top: 60px;
   min-height: 100vh;
   width: 100vw;
-  background-image: url(${bgSrc});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed
-`
-
-const Mask = styled.div`
-  position: absoulute;
-  top: 0;
-  right: 0;
-  min-height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.15);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  div {
-    font-size: 50px;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    /* line-height: 100vh; */
-    text-align: center;
-    font-weight: 600;
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-  }
   p {
     font-size: 50px;
-    color: #fff;
+    color: #444;
     margin: 0;
     padding: 0;
-    /* line-height: 100vh; */
+    line-height: 90vh;
     text-align: center;
     font-weight: 600;
   }
-  .ice-logo {
-    width: 50px;
-    height: 50px;
-  }
-  @media (max-width: 600px) {
-    p {
-      font-size: 35px;
-    }
-    .ice-logo {
-      width: 35px;
-      height: 35px;
-    }
-  }
 `
 
-const Name = styled.div`
-  min-height: 100vh;
-  width: 100vw;
-  color: #fff;
+const ImgCardList = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0 10%;
+`
+
+const ImgCard = styled.div`
+  background: #333;
+  width: 220px;
+  height: 400px;
+  margin: 10px;
+  position: relative;
+  > img {
+    width: 220px;
+    height: 400px;
+    object-fit: cover;
+    transition: .6s;
+  }
+  > span {
+    position: absolute;
+    color: #fff;
+    right: 10px;
+    top: 30%;
+    margin: 0;
+    flex-shrink: 0;
+    font-size: 35px;
+    font-weight: 600;
+    opacity: .9;
+    transition: .3s;
+    text-shadow: 1px 1px 2px #999;
+  }
+  &:hover img {
+    object-position: 15%;
+  }
 `
 
 const RouteContainer = styled.div`
   min-height: calc(100vh - 110px - 80px);
 `
-
 const Nav = styled.div`
   position: fixed;
   top: 0px;
-  /* right: 20px; */
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -90,7 +77,6 @@ const Nav = styled.div`
   @media (max-width: 600px) {
     .nav-panel {
       display: flex;
-      /* background: #222; */
       height: 50px;
       flex-wrap: nowrap;
       flex-shrink: 0;
@@ -124,6 +110,6 @@ export {
   Container,
   RouteContainer,
   Nav,
-  Mask,
-  Name
+  ImgCardList,
+  ImgCard,
 };

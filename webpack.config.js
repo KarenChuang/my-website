@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: 'http://d2qshr7co79d3m.cloudfront.net/',
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { getVlogList } from '../api'
 
 import {
   Page,
@@ -15,11 +16,9 @@ const Vlog: React.SFC<{}> = () => {
   const [loaded, setLoaded] = useState(false)
 
   const fetchData = () => {
-    axios(
-      'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/vlogs',
-    ).then(({ data }) => {
+    getVlogList().then(({ data }) => {
       setLoaded(true)
-      setVlogData(data.data.list)
+      setVlogData(data.data)
     }).catch((err) => {
       setLoaded(true)
     })

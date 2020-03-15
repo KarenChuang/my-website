@@ -4,7 +4,6 @@ interface Props {
   show: boolean
 }
 
-
 const Page = styled.div`
   height: 100vh;
   width: 100vw;

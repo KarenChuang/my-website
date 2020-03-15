@@ -9,7 +9,6 @@ const Page = styled.div`
   min-height: 100vh;
   width: 100vw;
   background: rgb(247,247,247)
-
 `
 
 const Container = styled.div`
@@ -24,7 +23,6 @@ const Container = styled.div`
     min-width: 380px;
     width: 42%;
     height: 150px;
-    /* border: 4px solid #388766; */
     box-shadow: 0 2px 15px 0 rgba(0,0,0,0.1);
     border-radius: 10px;
     background: #f1f1f1;

@@ -3,6 +3,7 @@ import * as locationIcon from '../assets/location.svg'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { getFoodList } from '../api'
 
 import {
   Page,
@@ -16,10 +17,8 @@ const Food: React.SFC<{}> = () => {
   const [loaded, setLoaded] = useState(false)
 
   const fetchData = () => {
-    axios(
-      'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/foods',
-    ).then(({ data }) => {
-      setFoodData(data.data.list)
+    getFoodList().then(({ data }) => {
+      setFoodData(data.data)
       setLoaded(true)
     }).catch((err) => {
       console.log(err)
@@ -64,7 +63,7 @@ const Food: React.SFC<{}> = () => {
           ) : 
           <SkeletonTheme color="#fff" highlightColor="#eee">
             <p>
-              <Skeleton wrapper={SkeletonBox} duration={4} height={184} width={480} count={6} />
+              <Skeleton wrapper={SkeletonBox} duration={4} height={184} width={480} count={2} />
             </p>
           </SkeletonTheme>
         }

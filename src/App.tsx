@@ -8,12 +8,9 @@ import {
   Nav,
   Container,
   RouteContainer,
-  Mask,
-  Name,
-  // NavLink,
 } from './Styled/Homepage'
 
-import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from 'react-router-dom'
 import Homepage from './Components/Homepage';
 import Vlog from './Components/Vlog';
 import Movies from './Components/Movies';
@@ -79,7 +76,6 @@ const App: React.SFC = () => {
             <Route path="/about" component={About}/>
           </Switch>
         </RouteContainer>
-        {/* <Redirect from="/" to="/home" /> */}
 
     </Router>
     )

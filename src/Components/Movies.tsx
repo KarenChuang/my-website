@@ -3,6 +3,7 @@ import * as star2 from '../assets/star2.png'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { getMovieList } from '../api'
 
 import {
   Page,
@@ -18,10 +19,8 @@ const Movies: React.SFC<{}> = () => {
   const [loaded, setLoaded] = useState(false)
 
   const fetchData = () => {
-    axios(
-      'http://ec2-52-52-147-166.us-west-1.compute.amazonaws.com/api/movies',
-    ).then(({ data }) => {
-      setMovieData(data.data.list)
+    getMovieList().then(({ data }) => {
+      setMovieData(data.data)
       setLoaded(true)
     }).catch((err) => {
       console.log(err)
@@ -61,7 +60,7 @@ const Movies: React.SFC<{}> = () => {
           )) : 
           <SkeletonTheme color="#fff" highlightColor="#388766">
           <p>
-            <Skeleton wrapper={SkeletonBox} duration={4} height={400} width={230} count={2} />
+            <Skeleton wrapper={SkeletonBox} duration={4} height={400} width={230} count={4} />
           </p>
           </SkeletonTheme>
         }
