@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getVlogList } from '../api'
+import { format } from 'date-fns'
 
 import {
   Page,
@@ -18,7 +19,7 @@ const Vlog: React.SFC<{}> = () => {
   const fetchData = () => {
     getVlogList().then(({ data }) => {
       setLoaded(true)
-      setVlogData(data.data)
+      setVlogData(data.data.list)
     }).catch((err) => {
       setLoaded(true)
     })
@@ -41,13 +42,13 @@ const Vlog: React.SFC<{}> = () => {
       <Container>
       {
         (vlogData && vlogData.length && loaded) ? vlogData.map((card: Card) =>
-          <Card key={card.title} href={ card.link } target="_blank">
+          <Card key={card.title} href={card.link} target="_blank">
             <div className="image-panel">
               <img className="cover" src={ card.cover } />
             </div>
             <div className="info">
               <p className="title">{ card.title }</p>
-              <span> { card.date }</span>
+              <span> { format(new Date(card.date), 'yyyy-MM-dd') }</span>
             </div>
             <div className="location">
                 <span>{ card.location }</span>

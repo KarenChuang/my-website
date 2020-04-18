@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const DOMAIN:string = '//ec2-52-52-147-166.us-west-1.compute.amazonaws.com'
-// const DOMAIN:string = '//localhost:8080'
+// const DOMAIN:string = '//ec2-52-52-147-166.us-west-1.compute.amazonaws.com'
+const DOMAIN:string = '//localhost:8080'
 
 const getFoodList = () => {
   return axios(`${DOMAIN}/api/foods`)

@@ -2,6 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
+const ASSET_PATH = process.env.NODE_ENV === 'dev' ? '/' : 'http://d2qshr7co79d3m.cloudfront.net/'
+
 module.exports = {
   entry: {
     app: './src/index.tsx',
@@ -9,7 +11,7 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
-    publicPath: 'http://d2qshr7co79d3m.cloudfront.net/',
+    publicPath: ASSET_PATH
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
@@ -18,7 +20,7 @@ module.exports = {
     }
   },
   devServer: {
-    port: 8088,
+    port: 8082,
     contentBase: path.join(__dirname, 'public'),
     compress: true,
     historyApiFallback: true,
